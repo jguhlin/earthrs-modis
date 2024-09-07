@@ -2,15 +2,15 @@ use serde::de::{self, Deserializer};
 use serde::ser::Serializer;
 use serde::{Deserialize, Serialize};
 
-#[derive(Deserialize, Serialize, Debug)]
+#[derive(Deserialize, Serialize, Debug, PartialEq, Eq, Clone)]
 pub struct DateInfo {
-    modis_date: String,
-    calendar_date: String,
+    pub modis_date: String,
+    pub calendar_date: String,
 }
 
 #[derive(Deserialize, Serialize, Debug)]
 pub struct DatesWrapper {
-    dates: Vec<DateInfo>,
+    pub dates: Vec<DateInfo>,
 }
 
 #[derive(Debug, Serialize, Deserialize)]
@@ -246,13 +246,13 @@ impl Into<&str> for ProductType {
 
 #[derive(Deserialize, Debug)]
 pub struct Site {
-    siteid: String,
-    sitename: String,
-    network: String,
-    latitude: f64,
-    longitude: f64,
-    state: Option<String>,
-    country: String,
+    pub siteid: String,
+    pub sitename: String,
+    pub network: String,
+    pub latitude: f64,
+    pub longitude: f64,
+    pub state: Option<String>,
+    pub country: String,
 }
 
 #[derive(Deserialize, Debug)]
@@ -262,26 +262,26 @@ pub struct Sites {
 
 #[derive(Deserialize, Debug)]
 pub struct Subset {
-    modis_date: String,
-    calendar_date: String,
-    band: String,
-    tile: String,
-    proc_date: String,
-    data: Vec<i32>,
+    pub modis_date: String,
+    pub calendar_date: String,
+    pub band: String,
+    pub tile: String,
+    pub proc_date: String,
+    pub data: Vec<i32>,
 }
 
 #[derive(Deserialize, Debug)]
 pub struct ModisData {
-    xllcorner: String,
-    yllcorner: String,
-    cellsize: f64,
-    nrows: i32,
-    ncols: i32,
-    band: String,
-    units: String,
-    scale: String,
-    latitude: f64,
-    longitude: f64,
-    header: String,
-    subset: Vec<Subset>,
+    pub xllcorner: String,
+    pub yllcorner: String,
+    pub cellsize: f64,
+    pub nrows: i32,
+    pub ncols: i32,
+    pub band: String,
+    pub units: String,
+    pub scale: String,
+    pub latitude: f64,
+    pub longitude: f64,
+    pub header: String,
+    pub subset: Vec<Subset>,
 }

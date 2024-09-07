@@ -8,3 +8,13 @@ reqwest = { version = "0.12.7", features = ["json"] }
 serde = { version = "1.0.210", features = ["derive"] }
 serde_json = "1.0.128"
 tokio = { version = "1.40.0", features = ["full"] }
+
+[dev-dependencies]
+eframe = "0.28.1"
+egui = "0.28.1"
+env_logger = "0.11.5"
+walkers = "0.24.0"
+
+[[example]]
+name = "lai" # leaf area index
+path = "examples/lai.rs"

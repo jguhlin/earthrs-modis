@@ -1,7 +1,6 @@
-use std::collections::HashMap;
+// https://modis.ornl.gov/data/modis_webservice.html
 
 const BASE_URL: &str = "https://modis.ornl.gov/rst/api/v1/";
-const HEADER: &str = "Accept: application/json";
 
 pub mod structs;
 
@@ -32,6 +31,12 @@ pub async fn dates(
 
     // modis_dates = [i['modis_date'] for i in dates]
     // calendar_dates = [i['calendar_date'] for i in dates]
+
+    // Print the URL used
+    println!(
+        "{}/{}/dates?latitude={}&longitude={}",
+        BASE_URL, product, latitude, longitude
+    );
 
     let response = reqwest::get(format!(
         "{}/{}/dates?latitude={}&longitude={}",
